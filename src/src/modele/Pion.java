@@ -25,6 +25,44 @@ public class Pion extends Piece{
     public Pion(Couleur c){
         super(c);
     }
+    
+       public boolean premierDeplacement(int xDep, int xAr, Modele m){
+        ArrayList<Piece> p = m.getPieces(); // liste de pièces 
+        /// boolean premierDep = false;
+        for (int i = 0; i < p.size(); i++) {
+            /// CAS BLANC
+            if (p.get(i).getCouleur().equals(Couleur.BLANC) && p.get(i).lireType().equals(TypePiece.PION)) {
+                // AU DEPART TOUS LES PIONS BLANCS SONT SUR LA LIGNE 6
+                ///System.out.println(p.get(i));
+                if (this.x == xDep && xDep == 6 && xAr == xDep - 2 || xAr == xDep - 1) {
+                    ///  System.out.println("this.x == xDep");
+                    //System.out.println("this.x = " + this.x);
+                    System.out.println("PREMIER DEPLACEMENT BLANC");
+                    return true;
+                } else {
+                    System.out.println("DEPLACEMENT NON AUTORISÉ POUR PION BLANC");
+                    return false;
+                }
+
+            } /// CAS NOIR 
+            else if (p.get(i).getCouleur().equals(Couleur.NOIR) && p.get(i).lireType().equals(TypePiece.PION)) {
+                /// System.out.println(p.get(i));
+
+                // AU DEPART TOUS LES PIONS NOIRS SONT SUR LA LIGNE 1
+                if (this.x == xDep && xDep == 1 && xAr == xDep + 2 || xAr == xDep + 1) {
+                    System.out.println("PREMIER DEPLACEMENT NOIR");
+                    return true;
+                } else {
+                    System.out.println("DEPLACEMENT NON AUTORISÉ POUR PION NOIR");
+                    return false;
+                }
+            }
+
+        }
+
+        return false;
+
+    }
 
         /**
      * fonction redéfinissant la méthode seDeplacer
