@@ -71,8 +71,7 @@ public class Pion extends Piece{
     /**
      * Méthode permettant de savoir si une prise est possible 
      * @return 
-     */
-    @Override
+     */   
     public boolean priseEstPossible(int xAr, int yAr, Modele m) {
           ArrayList<Piece> p = m.getPieces(); // liste de pièces 
         Piece[][] plateau = m.initialiserTableau(); // Plateau contenant les pièces à déplacer 
